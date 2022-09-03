@@ -2,16 +2,17 @@ NAME = Minishell
 CC = gcc
 FILES = main.c
 OBJ = ${FILES:.c=.o}
-INCLUDESS = -I /goinfre/cbourajl/.brew/opt/readline/include
-LIBRARIESS = -L /goinfre/cbourajl/.brew/opt/readline/lib -lreadline
+INCLUDES = -I /goinfre/cbourajl/.brew/opt/readline/include
+LIBRARIES = -L /goinfre/cbourajl/.brew/opt/readline/lib -lreadline
 FLAGS = -Wall -Wextra -Werror
+
 %.o: %.c minishell.h
-	$(CC) $(FLAGS) -c $< ${INCLUDESS} -o $@
+	$(CC) $(FLAGS) -c $< ${INCLUDES} -o $@
 
 all: ${NAME}
 
 ${NAME}: ${OBJ}
-	$(CC) ${LIBRARIESS} $(OBJ) -o ${NAME}
+	$(CC) ${LIBRARIES} $(OBJ) -o ${NAME}
 
 clean:
 	rm -rf $(OBJ)
