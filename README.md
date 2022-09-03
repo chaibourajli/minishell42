@@ -11,7 +11,29 @@ The way the commands are processed :
 
 ## Parsing :
 
+lexer-tokenisation-envoi de tout end back-end(execution)
+{
+  Les séparations
+  Les pipes
+  Commande et arguments
+  Les protections
+  Les redirections <, >, >>
+  Les variables d'environnement
+}
 ## Execution :
+{
+  Les redirections
+  Env, export, unset
+  Exit et $?
+  Liens pipes/signaux/processus
+}
 Redirection :
 
 <img width="1073" alt="Screen Shot 2022-09-02 at 11 18 29 AM" src="https://user-images.githubusercontent.com/96797193/188118795-acb3d719-9eb6-4fa4-91ba-34d3795a2fec.png">
+
+## Ressources :
+
+<ul>
+  <li>http://www-igm.univ-mlv.fr/~forax/ens/java-avance/cours/pdf/old/Generation%20de%20code%201.pdf</li>
+  <li>https://miro.com/app/board/uXjVO3ccsYw=/</li>
+ </ul>
