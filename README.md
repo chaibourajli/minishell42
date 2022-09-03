@@ -10,7 +10,7 @@ The way the commands are processed :
 <img width="703" alt="Screen Shot 2022-09-02 at 11 10 38 AM" src="https://user-images.githubusercontent.com/96797193/188117743-b0757415-b38c-42b3-bd39-0cf4d8e93f0a.png">
 
 ## Parsing :
-
+![Xxx_Scanner_and_parser_example_for_C](https://user-images.githubusercontent.com/96797193/188277616-65a84412-ac6b-40f5-9e8a-da1a02256862.jpeg)
 lexer-tokenisation-envoi de tout end back-end(execution)
 {
   Les séparations
@@ -20,6 +20,7 @@ lexer-tokenisation-envoi de tout end back-end(execution)
   Les redirections <, >, >>
   Les variables d'environnement
 }
+
 ## Execution :
 {
   Les redirections
