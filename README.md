@@ -23,7 +23,7 @@ lexer-tokenisation-envoi de tout end back-end(execution)
 ## Execution :
 {
   Les redirections
-  Env, export, unset
+  builtins
   Exit et $?
   Liens pipes/signaux/processus
 }
@@ -36,4 +36,5 @@ Redirection :
 <ul>
   <li>http://www-igm.univ-mlv.fr/~forax/ens/java-avance/cours/pdf/old/Generation%20de%20code%201.pdf</li>
   <li>https://miro.com/app/board/uXjVO3ccsYw=/</li>
+  <li>https://en.wikipedia.org/wiki/Lexical_analysis</li>
  </ul>
