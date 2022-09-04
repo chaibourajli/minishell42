@@ -1,6 +1,6 @@
 NAME = Minishell
 CC = gcc
-FILES = main.c
+FILES = main.c utils/ft_strlen.c utils/ft_strncmp.c
 OBJ = ${FILES:.c=.o}
 FLAGS = -Wall -Wextra -Werror
 

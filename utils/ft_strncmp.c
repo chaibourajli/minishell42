@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 13:09:38 by abouazi           #+#    #+#             */
-/*   Updated: 2022/09/03 17:53:52 by abouazi          ###   ########.fr       */
+/*   Updated: 2022/09/04 16:54:03 by cbourajl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
+#include "../minishell.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
