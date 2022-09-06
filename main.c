@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 13:45:52 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/04 17:10:18 by cbourajl         ###   ########.fr       */
+/*   Updated: 2022/09/06 17:31:29 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main(int ac, char **av, char **env)
 	{
             i = 0;
 	    while (env[i])
-	    printf("%s ", (env[i++]));
+	    printf("%s\n", (env[i++]));
 	}
 	else if (!ft_strncmp(cmd->line, "exit", ft_strlen(cmd->line)))
 		exit(0);
