@@ -6,11 +6,17 @@
 /*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 13:45:52 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/04 17:10:18 by cbourajl         ###   ########.fr       */
+/*   Updated: 2022/09/08 19:11:47 by cbourajl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+void    sighandl(int sig)
+{
+    signal(sig, SIG_IGN);
+    exit(0);
+}
 
 int main(int ac, char **av, char **env)
 {
@@ -21,8 +27,10 @@ int main(int ac, char **av, char **env)
     
     i = 0; 
     cmd = malloc(sizeof(t_cmd));
+    parsenv(env);
     while (1)
     {
+        signal(SIGINT, sighandl);
         printf("\033[1;32m");
         cmd->line = readline("Minishell$ > \033[0m ");
 		if (!ft_strncmp(cmd->line, "pwd", ft_strlen(cmd->line)))
@@ -38,4 +46,6 @@ int main(int ac, char **av, char **env)
 		add_history(cmd->line);
         rl_on_new_line();
     }
+    printenv();
+    free (cmd);
 }
