@@ -6,11 +6,18 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 13:45:52 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/06 17:31:29 by abouazi          ###   ########.fr       */
+/*   Updated: 2022/09/08 19:30:02 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "minishell.h"
+
+void    sighandl(int sig)
+{
+    signal(sig, SIG_IGN);
+    exit(0);
+}
 
 int main(int ac, char **av, char **env)
 {
@@ -20,6 +27,7 @@ int main(int ac, char **av, char **env)
 	int i;
      
     cmd = malloc(sizeof(t_cmd));
+    parsenv(env);
     while (1)
     {
 	printf("\033[1;32m");
@@ -28,7 +36,7 @@ int main(int ac, char **av, char **env)
 		printf("%s\n", getcwd(cmd->path, sizeof(cmd->path)));
 	else if (!ft_strncmp(cmd->line, "env", ft_strlen(cmd->line)))
 	{
-            i = 0;
+        i = 0;
 	    while (env[i])
 	    printf("%s\n", (env[i++]));
 	}
@@ -37,4 +45,6 @@ int main(int ac, char **av, char **env)
 	add_history(cmd->line);
         rl_on_new_line();
     }
+    printenv();
+    free (cmd);
 }
