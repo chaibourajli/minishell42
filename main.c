@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 13:45:52 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/08 19:30:02 by abouazi          ###   ########.fr       */
+/*   Updated: 2022/09/09 02:10:30 by cbourajl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main(int ac, char **av, char **env)
 	else if (!ft_strncmp(cmd->line, "exit", ft_strlen(cmd->line)))
 		exit(0);
 	add_history(cmd->line);
-        rl_on_new_line();
+    rl_on_new_line();
     }
     printenv();
     free (cmd);
