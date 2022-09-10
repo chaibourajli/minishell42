@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   linkedlists.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/03 13:45:52 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/10 18:50:44 by cbourajl         ###   ########.fr       */
+/*   Created: 2022/09/09 19:32:59 by cbourajl          #+#    #+#             */
+/*   Updated: 2022/09/09 19:37:54 by cbourajl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "minishell.h"
 
-void    sighandl(int sig)
-{
-    signal(sig, SIG_IGN);
-    exit(0);
-}
 
-int main(int ac, char **av, char **env)
-{
-    (void)ac;
-    (void)av;
-    char *line;
-	int i;
-    i = -1;
 
-    parsenv(env);
-    while (1)
-    {
-	printf("\033[1;32m");
-        line = readline("Minishell$ > \033[0m ");
-    tokenize(line);
-	builtins(line, env);
-    add_history(line);
-    rl_on_new_line();
-    }
+void	add_back(t_env **lst, t_env *new)
+{
+	t_env	*last;
+
+	if (*lst != NULL)
+	{
+		last = ft_lstlast(*lst);
+		last->next = new;
+	}
+	else
+		*lst = new;
 }

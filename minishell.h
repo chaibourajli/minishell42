@@ -6,7 +6,7 @@
 /*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 13:41:40 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/08 19:21:42 by cbourajl         ###   ########.fr       */
+/*   Updated: 2022/09/10 18:50:14 by cbourajl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,40 @@
 #define STDOUT 1
 #define STDERR 2
 
-typedef struct s_cmd
+#define QUOTED 6
+#define GENERAL 7
+
+#define PIPE 3
+#define WORD 4
+#define REDIRIN 8
+#define REDIROUT 9
+
+
+typedef struct s_env
 {
-    char *line;
-    char path[1000];
-
-}   t_cmd;
-
-typedef struct s_env {
     char    *name;
     char    *value;
     struct s_env    *next;
 } t_env;
 
-t_env   *envir;
+typedef struct s_list
+{
+    struct s_token *head;
+    struct s_token *tail;
+    int size;
+} t_list;
 
+typedef struct s_token
+{
+    char *content;
+    int len;
+    struct s_token *next;
+    struct s_token *prev;
+    int type;
+    int state;
+} t_token;
+
+t_env   *envir;
 size_t	ft_strlen(const char *s);
 void    sighandl(int sig);
 void    printenv(void);
@@ -50,5 +69,7 @@ t_env   *new_env(char *name, char *value);
 t_env	*ft_lstlast(t_env *lst);
 char	**ft_split(char const *s, char c);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
+void    builtins(char *line, char **env);
+t_token *tokenize(char *line);
 
 #endif

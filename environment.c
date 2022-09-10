@@ -3,25 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   environment.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 19:08:41 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/08 19:30:57 by abouazi          ###   ########.fr       */
+/*   Updated: 2022/09/09 19:38:05 by cbourajl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-t_env	*ft_lstlast(t_env *lst)
-{
-	while (lst)
-	{
-		if (lst->next == NULL)
-			return (lst);
-		lst = lst->next;
-	}
-	return (lst);
-}
 
 t_env   *new_env(char *name, char *value)
 {
@@ -32,6 +21,17 @@ t_env   *new_env(char *name, char *value)
     envi->value = value;
     envi->next = NULL;
     return (envi);
+}
+
+t_env	*ft_lstlast(t_env *lst)
+{
+	while (lst)
+	{
+		if (lst->next == NULL)
+			return (lst);
+		lst = lst->next;
+	}
+	return (lst);
 }
 
 void	add_back(t_env **lst, t_env *new)
@@ -46,6 +46,7 @@ void	add_back(t_env **lst, t_env *new)
 	else
 		*lst = new;
 }
+
 void    parsenv(char **env)
 {
     int     i;

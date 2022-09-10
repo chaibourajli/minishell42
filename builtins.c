@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   builtins.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/03 13:45:52 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/10 18:50:44 by cbourajl         ###   ########.fr       */
+/*   Created: 2022/09/09 19:20:36 by cbourajl          #+#    #+#             */
+/*   Updated: 2022/09/09 19:23:54 by cbourajl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "minishell.h"
 
-void    sighandl(int sig)
+void    builtins(char *line, char **env)
 {
-    signal(sig, SIG_IGN);
-    exit(0);
-}
-
-int main(int ac, char **av, char **env)
-{
-    (void)ac;
-    (void)av;
-    char *line;
-	int i;
-    i = -1;
-
-    parsenv(env);
-    while (1)
-    {
-	printf("\033[1;32m");
-        line = readline("Minishell$ > \033[0m ");
-    tokenize(line);
-	builtins(line, env);
-    add_history(line);
-    rl_on_new_line();
-    }
+    int i;
+    
+    char path[1000];
+	if (!ft_strncmp(line, "pwd", ft_strlen(line)))
+		printf("%s\n", getcwd(path, sizeof(path)));
+	else if (!ft_strncmp(line, "env", ft_strlen(line)))
+	{
+        i = 0;
+	    while (env[i])
+	    printf("%s\n", (env[i++]));
+	}
+	else if (!ft_strncmp(line, "exit", ft_strlen(line)))
+		exit(0);
 }
