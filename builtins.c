@@ -6,7 +6,7 @@
 /*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 19:20:36 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/09 19:23:54 by cbourajl         ###   ########.fr       */
+/*   Updated: 2022/09/11 15:31:45 by cbourajl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,6 @@ void    builtins(char *line, char **env)
 	}
 	else if (!ft_strncmp(line, "exit", ft_strlen(line)))
 		exit(0);
+	else if (!ft_strncmp(line, "env", ft_strlen(line)))
+		printenv();
 }

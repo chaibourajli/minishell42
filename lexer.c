@@ -6,7 +6,7 @@
 /*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 03:21:59 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/10 18:17:13 by cbourajl         ###   ########.fr       */
+/*   Updated: 2022/09/11 16:08:37 by cbourajl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,47 +26,64 @@ int	ft_isalpha(int c)
 	return (0);
 }
 
-t_token *new_token(char *content, int len, int type, int state)
+int is_redir(int c)
 {
-    t_token *token;
-
-    token = (t_token *)malloc(sizeof(t_token));
-    token->content = content;
-    token->len = len;
-    token->type = type;
-    token->state = state;
-    return (token);
+    if (c == '<' || c == '>')
+        return (1);
+    return (0);
 }
 
-t_token *tokenize(char *line)
+int is_pipe(int c)
 {
-    t_token *token;
-    int i;
-    int j;
-    int k;
-    char *quotes;
+    if (c == '|')
+        return (1);
+    return (0);
+}
 
-    i = -1;
-    while (line[++i])
+int is_parenthesis_and(int c)
+{
+    if (c == '{' || c == '&' || c == ';' || c == '}' || c == '(' || c == ')')
+        return (1);
+    return (0);
+}
+int is_special(int c)
+{
+    if (!is_pipe(c) && !is_redir(c) && !is_parenthesis_and(c))
+        return (1); 
+    return (0);
+}
+
+int is_digit(int c)
+{
+    if (c >= '0' && c <= '9')
+        return (1);
+    return (0);
+}
+
+int is_word(int c)
+{
+    if (is_special(c) || ft_isalpha(c) || is_digit(c))
+        return (1);
+    return (0);
+}
+
+int main(int ac, char **av)
+{
+    int i;
+    char c;
+
+    i = 0;
+    while (av[1][i])
     {
-        if (line[i] == '"')
-        {
-            j = i + 1;
-            k = -1;
-            while (line [j++] != '"')
-                quotes[++k] = line[j];
-            if (j == ft_strlen(line) && line[ft_strlen] != '"')
-                return( printf("error"), 0);
-            return (new_token(quotes, ft_strlen(quotes), WORD, QUOTED));
-        }
-        else if (line[i] == '|')
-            return (new_token("|", 1, PIPE, GENERAL));
-        else if (line[i] == '\' || line[i] == ';')
-            continue;
-        else if (line[i] == '<')
-            return(new_token("<", 1, REDIRIN, GENERAL));
-        else if (line[i] == '>')
-            return (new_token(">", 1, REDIROUT, GENERAL));
+        c = av[1][i];
+        if (is_word(c))
+            printf("this is a word\n");
+        else if (is_pipe(c))
+            printf("this is a pipe\n");
+        else if (is_redir(c))
+            printf("this is a redir\n");
+        else if (is_parenthesis_and(c))
+            printf("error special\n");
+        i++;
     }
-    free (token);
 }
