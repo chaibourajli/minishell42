@@ -6,7 +6,7 @@
 /*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 13:41:40 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/10 18:50:14 by cbourajl         ###   ########.fr       */
+/*   Updated: 2022/09/11 16:59:23 by cbourajl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,8 @@ typedef struct s_list
 typedef struct s_token
 {
     char *content;
-    int len;
     struct s_token *next;
-    struct s_token *prev;
     int type;
-    int state;
 } t_token;
 
 t_env   *envir;

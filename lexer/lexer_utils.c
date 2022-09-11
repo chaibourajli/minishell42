@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lexer.c                                            :+:      :+:    :+:   */
+/*   lexer_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 03:21:59 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/11 16:08:37 by cbourajl         ###   ########.fr       */
+/*   Updated: 2022/09/11 16:38:41 by cbourajl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
 int ft_isspace(char c)
 {
@@ -65,25 +65,4 @@ int is_word(int c)
     if (is_special(c) || ft_isalpha(c) || is_digit(c))
         return (1);
     return (0);
-}
-
-int main(int ac, char **av)
-{
-    int i;
-    char c;
-
-    i = 0;
-    while (av[1][i])
-    {
-        c = av[1][i];
-        if (is_word(c))
-            printf("this is a word\n");
-        else if (is_pipe(c))
-            printf("this is a pipe\n");
-        else if (is_redir(c))
-            printf("this is a redir\n");
-        else if (is_parenthesis_and(c))
-            printf("error special\n");
-        i++;
-    }
 }

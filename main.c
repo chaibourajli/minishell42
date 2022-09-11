@@ -6,7 +6,7 @@
 /*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 13:45:52 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/11 15:32:31 by cbourajl         ###   ########.fr       */
+/*   Updated: 2022/09/11 16:51:24 by cbourajl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ int main(int ac, char **av, char **env)
 
     parsenv(env);
      while (1)
-        {
+    {
 	    printf("\033[1;32m");
-   line = readline("Minishell$ > \033[0m ");
-     builtins(line, env);
-     add_history(line);
-     rl_on_new_line();
+        line = readline("Minishell$ > \033[0m ");
+        builtins(line, env);
+        add_history(line);
+        rl_on_new_line();
     }
 }
