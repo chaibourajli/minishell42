@@ -6,7 +6,7 @@
 /*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 13:41:40 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/11 16:59:23 by cbourajl         ###   ########.fr       */
+/*   Updated: 2022/09/14 16:10:42 by cbourajl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@
 
 #define PIPE 3
 #define WORD 4
-#define REDIRIN 8
-#define REDIROUT 9
+#define REDIR 5
 
 
 typedef struct s_env
@@ -57,7 +56,7 @@ typedef struct s_token
 } t_token;
 
 t_env   *envir;
-size_t	ft_strlen(const char *s);
+int	ft_strlen(const char *s);
 void    sighandl(int sig);
 void    printenv(void);
 void    parsenv(char **env);
@@ -68,5 +67,13 @@ char	**ft_split(char const *s, char c);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
 void    builtins(char *line, char **env);
 t_token *tokenize(char *line);
+int ft_isspace(char c);
+int	ft_isalpha(int c);
+int is_redir(int c);
+int is_pipe(int c);
+int is_parenthesis_and(int c);
+int is_special(int c);
+int is_digit(int c);
+int is_word(char *str);
 
 #endif

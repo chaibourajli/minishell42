@@ -6,11 +6,11 @@
 /*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 03:21:59 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/11 16:38:41 by cbourajl         ###   ########.fr       */
+/*   Updated: 2022/09/14 16:15:06 by cbourajl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "minishell.h"
 
 int ft_isspace(char c)
 {
@@ -60,9 +60,15 @@ int is_digit(int c)
     return (0);
 }
 
-int is_word(int c)
+int is_word(char *str)
 {
-    if (is_special(c) || ft_isalpha(c) || is_digit(c))
+    int i;
+
+    i = 0;
+    while (ft_isalpha(str[i]) || is_digit(str[i]))
+        i++;
+    if (i == ft_strlen(str))
         return (1);
-    return (0);
+    else
+        return (0);
 }
