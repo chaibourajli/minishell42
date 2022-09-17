@@ -6,7 +6,7 @@
 /*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 19:20:36 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/11 15:31:45 by cbourajl         ###   ########.fr       */
+/*   Updated: 2022/09/14 19:18:08 by cbourajl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,7 @@ void    builtins(char *line, char **env)
     
     char path[1000];
 	if (!ft_strncmp(line, "pwd", ft_strlen(line)))
-		printf("%s\n", getcwd(path, sizeof(path)));
-	else if (!ft_strncmp(line, "env", ft_strlen(line)))
-	{
-        i = 0;
-	    while (env[i])
-	    printf("%s\n", (env[i++]));
-	}
+		printf("%s\n", getcwd(path, sizeof(path)))
 	else if (!ft_strncmp(line, "exit", ft_strlen(line)))
 		exit(0);
 	else if (!ft_strncmp(line, "env", ft_strlen(line)))
