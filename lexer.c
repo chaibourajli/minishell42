@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexer.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 16:39:49 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/15 21:35:33 by cbourajl         ###   ########.fr       */
+/*   Updated: 2022/09/17 14:34:32 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,10 +105,10 @@ void    printoken(t_token *tokens)
     }
 }
                                    
-int main()
+/* int main()
 {
     t_token *tokens;
 
     tokens = lexer("dh eh efbel | eel < < ");
     
-}
+} */

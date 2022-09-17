@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 13:41:40 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/14 16:10:42 by cbourajl         ###   ########.fr       */
+/*   Updated: 2022/09/17 15:08:04 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,11 @@ typedef struct s_token
 } t_token;
 
 t_env   *envir;
-int	ft_strlen(const char *s);
+
+
+//functions
+
+int	    ft_strlen(const char *s);
 void    sighandl(int sig);
 void    printenv(void);
 void    parsenv(char **env);
@@ -64,16 +68,24 @@ void	add_back(t_env **lst, t_env *new);
 t_env   *new_env(char *name, char *value);
 t_env	*ft_lstlast(t_env *lst);
 char	**ft_split(char const *s, char c);
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int	    ft_strncmp(const char *s1, const char *s2, size_t n);
 void    builtins(char *line, char **env);
 t_token *tokenize(char *line);
-int ft_isspace(char c);
-int	ft_isalpha(int c);
-int is_redir(int c);
-int is_pipe(int c);
-int is_parenthesis_and(int c);
-int is_special(int c);
-int is_digit(int c);
-int is_word(char *str);
+int     ft_isspace(char c);
+int	    ft_isalpha(int c);
+int     is_redir(int c);
+int     is_pipe(int c);
+int     is_parenthesis_and(int c);
+int     is_special(int c);
+int     is_digit(int c);
+int     is_word(char *str);
+int     ft_echo();
+void    ft_exit();
+void    ft_pwd();
+void    ft_cd();
+void    printenv(void);
+void    ft_export();
+void    ft_unset();
+
 
 #endif

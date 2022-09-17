@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   environment.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 19:08:41 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/09 19:38:05 by cbourajl         ###   ########.fr       */
+/*   Updated: 2022/09/17 14:33:56 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,5 @@ void    parsenv(char **env)
         node = new_env(splitted[0], splitted[1]);
         add_back(&envir, node);
 
-    }
-}
-
-void    printenv(void)
-{
-    t_env   *tmp;
-    tmp =  envir;
-
-    while(tmp != NULL)
-    {
-        printf("%s=%s\n", tmp->name, tmp->value);
-        tmp = tmp->next;
     }
 }
