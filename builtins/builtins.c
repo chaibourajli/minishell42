@@ -3,24 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   builtins.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/09 19:20:36 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/14 19:18:08 by cbourajl         ###   ########.fr       */
+/*   Created: 2022/09/17 13:39:45 by abouazi           #+#    #+#             */
+/*   Updated: 2022/09/17 15:07:42 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
 void    builtins(char *line, char **env)
 {
-    int i;
+    (void)env;
     
-    char path[1000];
-	if (!ft_strncmp(line, "pwd", ft_strlen(line)))
-		printf("%s\n", getcwd(path, sizeof(path)))
+    if (!ft_strncmp(line, "pwd", ft_strlen(line)))
+        ft_pwd();
 	else if (!ft_strncmp(line, "exit", ft_strlen(line)))
-		exit(0);
+		ft_exit();
+    else if (!ft_strncmp(line, "echo", ft_strlen(line)))
+		ft_echo();
 	else if (!ft_strncmp(line, "env", ft_strlen(line)))
 		printenv();
+    else if(!ft_strncmp(line, "cd", ft_strlen(line)))
+        ft_cd();
+    else if(!ft_strncmp(line, "export", ft_strlen(line)))
+        ft_export();
+    else if(!ft_strncmp(line, "unset", ft_strlen(line)))
+        ft_unset();
+
 }

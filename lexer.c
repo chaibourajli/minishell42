@@ -6,7 +6,7 @@
 /*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 16:39:49 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/21 21:34:33 by cbourajl         ###   ########.fr       */
+/*   Updated: 2022/09/21 21:39:51 by cbourajl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,4 @@ void    printoken(t_token *tokens)
         printf("this is a %s that is a %d\n", tmp->content, tmp->type);
         tmp = tmp->next;
     }
-}
-                                   
-int main()
-{
-    t_token *tokens;
-    tokens = lexer("dh eh efbel | eel < < ");
-    printoken(tokens);
 }

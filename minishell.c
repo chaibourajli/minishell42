@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 13:45:52 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/11 16:51:24 by cbourajl         ###   ########.fr       */
+/*   Updated: 2022/09/17 15:07:08 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,9 @@ int main(int ac, char **av, char **env)
     (void)ac;
     (void)av;
     char *line;
-	int i;
-    i = -1;
-
-    parsenv(env);
-     while (1)
+    
+    parsenv(env); 
+    while (1)
     {
 	    printf("\033[1;32m");
         line = readline("Minishell$ > \033[0m ");
