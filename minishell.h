@@ -6,7 +6,7 @@
 /*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 13:41:40 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/14 16:10:42 by cbourajl         ###   ########.fr       */
+/*   Updated: 2022/09/21 20:31:54 by cbourajl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,12 @@
 #define STDIN 0
 #define STDOUT 1
 #define STDERR 2
-
-#define QUOTED 6
-#define GENERAL 7
-
 #define PIPE 3
 #define WORD 4
 #define REDIR 5
+#define QUOTED 6
+#define GENERAL 7
+
 
 
 typedef struct s_env

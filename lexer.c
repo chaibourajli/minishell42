@@ -6,12 +6,11 @@
 /*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 16:39:49 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/15 21:35:33 by cbourajl         ###   ########.fr       */
+/*   Updated: 2022/09/21 21:34:33 by cbourajl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-#include <string.h>
 
 t_token	*last_token(t_token *lst)
 {
@@ -60,34 +59,15 @@ t_token *lexer(char *line)
     splitted = ft_split(line, ' ');
     while (splitted[i])
     {
-        int j = 0;
-        while (splitted[i][j])
-        {
-            if (is_parenthesis_and(splitted[i][j]))
-            {
-                printf("syntax error");
-                return (0);
-            }
-            j++;
-        }
-        i++;
-    }
-    i = 0;
-    while (splitted[i])
-    {
         if (is_word(splitted[i]))
             add_back_tok(&tokens, splitted[i], WORD);
         else if (ft_strlen(splitted[i]) == 1)
         {
-            if (is_pipe(splitted[i][0]))
-                add_back_tok(&tokens, splitted[i],  PIPE);
-            else if (is_redir(splitted[i][0]))
+            if (is_redir(splitted[i][0]))
                 add_back_tok(&tokens, splitted[i], REDIR);
-            else
-                printf("idk what the fuck this is \n");
+            else if (is_pipe(splitted[i][0]))
+                add_back_tok(&tokens, splitted[i], PIPE);
         }
-        else
-            printf("jsp\n");
         i++;
     }
     return (tokens);
@@ -108,7 +88,6 @@ void    printoken(t_token *tokens)
 int main()
 {
     t_token *tokens;
-
     tokens = lexer("dh eh efbel | eel < < ");
-    
+    printoken(tokens);
 }
