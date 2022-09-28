@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cbourajl <cbourajl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 13:41:40 by cbourajl          #+#    #+#             */
-/*   Updated: 2022/09/21 21:39:29 by cbourajl         ###   ########.fr       */
+/*   Updated: 2022/09/28 20:25:14 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <stdbool.h>
 # include <string.h>
 # include <stdlib.h>
-# include <readline/readline.h>
-# include <readline/history.h>
+//# include <readline/readline.h>
+//# include <readline/history.h>
 # include <signal.h>
 
 #define STDIN 0
